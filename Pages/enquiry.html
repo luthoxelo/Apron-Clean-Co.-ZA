@@ -3,99 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apron Cleans Co. ZA - Bookings & Enquiries</title>
+    <title>Apron Cleans Co. ZA - Bookings &amp; Enquiries</title>
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
 <body>
 
     <!-- Header & Navigation Bar -->
     <header>
-        <h1>Apron Cleans Co. ZA</h1>
-        <p><em>Start on a clean slate.</em></p>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="enquiry.html">Enquiry / Booking</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
+        <div class="header-inner">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <div class="header-top">
+                <h1><a href="../index.html">Apron Cleans Co. ZA</a></h1>
+                <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <p class="tagline"><em>Start on a clean slate.</em></p>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="enquiry.html" class="active">Enquiry / Booking</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <hr>
 
     <main>
         <section id="booking-section">
-            <h2>Request a Quote / Service Booking</h2>
-            <p>Complete the form below to share your cleaning requirements. Our team will contact you promptly with a custom quote.</p>
+            <div class="container">
+                <h2>Request a Quote / Service Booking</h2>
+                <p>Complete the form below to share your cleaning requirements. Our team will contact you promptly with a custom quote.</p>
 
-            <!-- Booking and Service Request Form -->
-            <form action="#" method="post">
-                <fieldset>
-                    <legend><strong>Client Information</strong></legend>
-                    
+                <!-- Booking and Service Request Form -->
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend><strong>Client Information</strong></legend>
+
+                        <p>
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="e.g., Sinesipho Peter" required>
+                        </p>
+
+                        <p>
+                            <label for="phone">Phone / WhatsApp Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., +27 67 896 4567" required>
+                        </p>
+
+                        <p>
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" placeholder="e.g., client@domain.co.za" required>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><strong>Service Request Details</strong></legend>
+
+                        <p>
+                            <label for="service">Required Cleaning Service:</label>
+                            <select id="service" name="service" required>
+                                <option value="">-- Please Select Service --</option>
+                                <option value="residential">Residential Routine Clean</option>
+                                <option value="deep-clean">Move-In / Move-Out Deep Clean</option>
+                                <option value="post-construction">Post-Construction Cleanup</option>
+                                <option value="wall-window">Wall &amp; Window Care</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="property-size">Property Size:</label>
+                            <select id="property-size" name="property_size">
+                                <option value="1-2-bed">1 - 2 Bedroom Unit</option>
+                                <option value="3-4-bed">3 - 4 Bedroom House</option>
+                                <option value="commercial">Office / Commercial Premises</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="preferred-date">Preferred Booking Date:</label>
+                            <input type="date" id="preferred-date" name="preferred_date" required>
+                        </p>
+
+                        <p>
+                            <label for="special-instructions">Additional Notes or Requests:</label>
+                            <textarea id="special-instructions" name="special_instructions" rows="5" placeholder="Specify key areas needing extra care..."></textarea>
+                        </p>
+                    </fieldset>
+
                     <p>
-                        <label for="fullname">Full Name:</label><br>
-                        <input type="text" id="fullname" name="fullname" placeholder="e.g., Sinesipho Peter" required>
+                        <button type="submit">Submit Enquiry Request</button>
+                        <button type="reset">Clear Form</button>
                     </p>
-
-                    <p>
-                        <label for="phone">Phone / WhatsApp Number:</label><br>
-                        <input type="tel" id="phone" name="phone" placeholder="e.g., +27 67 896 4567" required>
-                    </p>
-
-                    <p>
-                        <label for="email">Email Address:</label><br>
-                        <input type="email" id="email" name="email" placeholder="e.g., client@domain.co.za" required>
-                    </p>
-                </fieldset>
-
-                <br>
-
-                <fieldset>
-                    <legend><strong>Service Request Details</strong></legend>
-
-                    <p>
-                        <label for="service">Required Cleaning Service:</label><br>
-                        <select id="service" name="service" required>
-                            <option value="">-- Please Select Service --</option>
-                            <option value="residential">Residential Routine Clean</option>
-                            <option value="deep-clean">Move-In / Move-Out Deep Clean</option>
-                            <option value="post-construction">Post-Construction Cleanup</option>
-                            <option value="wall-window">Wall & Window Care</option>
-                        </select>
-                    </p>
-
-                    <p>
-                        <label for="property-size">Property Size:</label><br>
-                        <select id="property-size" name="property_size">
-                            <option value="1-2-bed">1 - 2 Bedroom Unit</option>
-                            <option value="3-4-bed">3 - 4 Bedroom House</option>
-                            <option value="commercial">Office / Commercial Premises</option>
-                        </select>
-                    </p>
-
-                    <p>
-                        <label for="preferred-date">Preferred Booking Date:</label><br>
-                        <input type="date" id="preferred-date" name="preferred_date" required>
-                    </p>
-
-                    <p>
-                        <label for="special-instructions">Additional Notes or Requests:</label><br>
-                        <textarea id="special-instructions" name="special_instructions" rows="5" cols="40" placeholder="Specify key areas needing extra care..."></textarea>
-                    </p>
-                </fieldset>
-
-                <br>
-
-                <p>
-                    <button type="submit">Submit Enquiry Request</button>
-                    <button type="reset">Clear Form</button>
-                </p>
-            </form>
+                </form>
+            </div>
         </section>
     </main>
 
-    <hr>
     <!-- Page Footer -->
     <footer>
         <p>&copy; 2026 Apron Cleans Co. ZA. All rights reserved.</p>

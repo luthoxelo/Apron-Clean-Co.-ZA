@@ -47,6 +47,44 @@ required pages, a shared stylesheet, shared JavaScript (navigation, form
 validation, scroll reveal), and the file/folder structure below.
 Part 2 and Part 3 will build on this foundation in future submissions/edits.
 
+
+## Part 2 Details
+Part 2 focused on visual design, layout, and navigation, turning the static
+Part 1 HTML into a styled, fully responsive site:
+
+- **Added `style.css`** — a single shared stylesheet linked from every page,
+  using CSS custom properties (variables) for the colour palette so the
+  theme is easy to adjust in one place.
+- **Colour scheme** — alpine dark green background (`#07271b`–`#0f4a33`
+  range), white (`#ffffff`) body text and section headings, yellow
+  (`#ffd447`) accents on headings, links, hover states, and buttons, and a
+  white footer with a yellow top border.
+- **Hamburger navigation** — implemented with pure CSS (a hidden checkbox +
+  `<label>` icon + `:checked` sibling selectors). Below 720px the nav
+  collapses behind the hamburger icon, which animates into an "X" when
+  opened. No JavaScript is used for this, per the current project scope.
+- **Responsive layout** — mobile-first CSS using Flexbox and CSS Grid:
+  - Hero image, service images, and team photos scale fluidly with
+    `max-width: 100%`.
+  - Services and team sections use a responsive card grid that reflows from
+    1 column on phones to 2 columns on tablets/desktops.
+  - The enquiry form's inputs, selects, and textareas stack full-width on
+    small screens.
+  - Both Google Maps embeds on the contact page are wrapped in an
+    aspect-ratio container (`.map-responsive`) so they resize correctly on
+    any screen instead of staying at a fixed pixel size.
+- **Bug fixes carried out to support the redesign:**
+  - Fixed two `<img>` tags in `about.html` that were missing their closing
+    `>`, which was breaking the rest of the page.
+  - Rebuilt `contact.html`, which had structural HTML errors (`</main>`
+    closing too early, a stray duplicate `<body>`, and a malformed second
+    map embed). Both locations now render correctly.
+  - Fixed the "Home" nav link on the homepage, which incorrectly pointed to
+    `about.html` instead of `index.html`.
+  - Added an active-page indicator to the nav on every page.
+
+## Sitemap
+
 ## Sitemap
 ```
 Home (index.html)
@@ -60,6 +98,21 @@ Home (index.html)
 │   └── Kitchen & bathroom cleaning
 ├── Enquiry (enquiry.html)
 └── Contact (contact.html)
+
+##Part 2
+## File and Folder Structure
+
+/
+├── index.html
+├── style.css
+├── README.md
+├── Assets/
+│ └── (images used across the site — hero, service, and team photos)
+└── Pages/
+├── about.html
+├── services.html
+├── enquiry.html
+└── contact.html
 ```
 
 ## File and Folder Structure
@@ -77,11 +130,13 @@ Home (index.html)
 
 ## Changelog
 - **v0.1.0** — Initial project structure, sitemap, and file organisation created.
-- **v0.2.0** — Built out index.html, about.html, services.html, enquiry.html
-  and contact.html with shared header/nav/footer, design system, and
-  responsive layout.
-- **v0.3.0** — Added client-side form validation, mobile navigation toggle,
-  scroll-reveal animation, and two embedded service-area maps.
+- **v0.2.0** (Part 1) — Built out index.html and the four Pages files with
+  static content, shared header/nav/footer markup, and no styling yet.
+- **v0.3.0** (Part 2) — Added `style.css` with the alpine dark-green colour
+  scheme, pure-CSS hamburger navigation, fully responsive layout (Flexbox +
+  CSS Grid, fluid images, responsive map embeds), active-nav-link styling,
+  and fixed pre-existing HTML structural bugs in `about.html` and
+  `contact.html`.
 
 ## References
 *Complete this section using your institution's recognised referencing style.

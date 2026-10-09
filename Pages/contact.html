@@ -30,6 +30,54 @@
         </section>
 
         <hr>
+        <section id="contact-form-section">
+    <div class="container">
+        <h2>Send Us a Message</h2>
+        <form id="contact-form" novalidate>
+            <fieldset>
+                <legend><strong>Your Details</strong></legend>
+
+                <p>
+                    <label for="contact-name">Full Name:</label>
+                    <input type="text" id="contact-name" name="contact_name" placeholder="e.g., Nomsa Khumalo" required>
+                </p>
+
+                <p>
+                    <label for="contact-email">Email Address:</label>
+                    <input type="email" id="contact-email" name="contact_email" placeholder="e.g., you@example.com" required>
+                </p>
+
+                <p>
+                    <label for="contact-phone">Phone Number (optional):</label>
+                    <input type="tel" id="contact-phone" name="contact_phone" placeholder="e.g., +27 71 234 5678">
+                </p>
+
+                <p>
+                    <label for="message-type">Type of Message:</label>
+                    <select id="message-type" name="message_type" required>
+                        <option value="">-- Please Select --</option>
+                        <option value="General Enquiry">General Enquiry</option>
+                        <option value="Compliment">Compliment</option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="contact-message">Your Message:</label>
+                    <textarea id="contact-message" name="contact_message" rows="5" placeholder="Type your message here..." required></textarea>
+                </p>
+            </fieldset>
+
+            <p>
+                <button type="submit">Send Message</button>
+                <button type="reset">Clear Form</button>
+            </p>
+        </form>
+    </div>
+</section>
+
+<hr>
 
         <!-- Multi-Location Requirement -->
         <section id="locations">
@@ -130,6 +178,98 @@
     <footer>
         <p>&copy; 2026 Apron Cleans Co. ZA. All rights reserved.</p>
     </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
 
+    var RECIPIENT_EMAIL = 'info@aproncleans.co.za'; // change to your real inbox
+
+    var responseBox = document.createElement('div');
+    responseBox.id = 'contact-response';
+    responseBox.className = 'form-message';
+    responseBox.setAttribute('role', 'status');
+    responseBox.hidden = true;
+    form.insertAdjacentElement('afterend', responseBox);
+
+    function showError(input, message) {
+      clearError(input);
+      input.classList.add('invalid');
+      var small = document.createElement('small');
+      small.className = 'field-error';
+      small.textContent = message;
+      input.insertAdjacentElement('afterend', small);
+    }
+
+    function clearError(input) {
+      input.classList.remove('invalid');
+      var next = input.nextElementSibling;
+      if (next && next.classList.contains('field-error')) next.remove();
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = form.querySelector('#contact-name');
+      var email = form.querySelector('#contact-email');
+      var type = form.querySelector('#message-type');
+      var message = form.querySelector('#contact-message');
+
+      [name, email, type, message].forEach(clearError);
+      responseBox.hidden = true;
+
+      var valid = true;
+
+      if (!name.value.trim()) {
+        showError(name, 'Please enter your name.');
+        valid = false;
+      }
+      if (!isValidEmail(email.value.trim())) {
+        showError(email, 'Please enter a valid email address.');
+        valid = false;
+      }
+      if (!type.value) {
+        showError(type, 'Please select a message type.');
+        valid = false;
+      }
+      if (!message.value.trim()) {
+        showError(message, 'Please type a message before sending.');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      var subject = '[' + type.value + '] Message from ' + name.value.trim();
+      var bodyLines = [
+        'Name: ' + name.value.trim(),
+        'Email: ' + email.value.trim(),
+        'Phone: ' + (form.querySelector('#contact-phone').value.trim() || 'Not provided'),
+        'Type: ' + type.value,
+        '',
+        message.value.trim()
+      ];
+      var body = bodyLines.join('\n');
+
+      var mailtoLink = 'mailto:' + RECIPIENT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+      responseBox.innerHTML =
+        '<strong>Thanks, ' + name.value.trim() + '!</strong><br>' +
+        'Your email client should now be opening with your message ready to send to us. ' +
+        'If it does not open automatically, please email us directly at <strong>' + RECIPIENT_EMAIL + '</strong>.';
+      responseBox.className = 'form-message success';
+      responseBox.hidden = false;
+      responseBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      window.location.href = mailtoLink;
+      form.reset();
+    });
+  });
+</script>
 </body>
 </html>

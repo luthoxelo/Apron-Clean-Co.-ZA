@@ -100,6 +100,113 @@
     <footer>
         <p>&copy; 2026 Apron Cleans Co. ZA. All rights reserved.</p>
     </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('#booking-section form');
+    if (!form) return;
 
+    var responseBox = document.createElement('div');
+    responseBox.id = 'enquiry-response';
+    responseBox.className = 'form-message';
+    responseBox.setAttribute('role', 'status');
+    responseBox.hidden = true;
+    form.insertAdjacentElement('afterend', responseBox);
+
+    // Rough base pricing (ZAR) and turnaround per service
+    var pricing = {
+      'residential':       { base: 450,  perRoom: 120, availability: '2 - 3 working days' },
+      'deep-clean':        { base: 850,  perRoom: 200, availability: '4 - 6 working days' },
+      'post-construction': { base: 1200, perRoom: 260, availability: '5 - 7 working days' },
+      'wall-window':       { base: 350,  perRoom: 90,  availability: '1 - 2 working days' }
+    };
+
+    var roomsBySize = { '1-2-bed': 2, '3-4-bed': 4, 'commercial': 6 };
+
+    function showError(input, message) {
+      clearError(input);
+      input.classList.add('invalid');
+      var small = document.createElement('small');
+      small.className = 'field-error';
+      small.textContent = message;
+      input.insertAdjacentElement('afterend', small);
+    }
+
+    function clearError(input) {
+      input.classList.remove('invalid');
+      var next = input.nextElementSibling;
+      if (next && next.classList.contains('field-error')) next.remove();
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function isValidPhone(value) {
+      return /^[0-9+()\s-]{7,15}$/.test(value);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var fullname = form.querySelector('#fullname');
+      var phone = form.querySelector('#phone');
+      var email = form.querySelector('#email');
+      var service = form.querySelector('#service');
+      var propertySize = form.querySelector('#property-size');
+      var preferredDate = form.querySelector('#preferred-date');
+
+      [fullname, phone, email, service, preferredDate].forEach(clearError);
+      responseBox.hidden = true;
+
+      var valid = true;
+
+      if (!fullname.value.trim()) {
+        showError(fullname, 'Please enter your full name.');
+        valid = false;
+      }
+      if (!isValidPhone(phone.value.trim())) {
+        showError(phone, 'Please enter a valid phone number.');
+        valid = false;
+      }
+      if (!isValidEmail(email.value.trim())) {
+        showError(email, 'Please enter a valid email address.');
+        valid = false;
+      }
+      if (!service.value) {
+        showError(service, 'Please select a cleaning service.');
+        valid = false;
+      }
+      if (!preferredDate.value) {
+        showError(preferredDate, 'Please choose a preferred date.');
+        valid = false;
+      } else {
+        var chosen = new Date(preferredDate.value);
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (chosen < today) {
+          showError(preferredDate, 'Preferred date cannot be in the past.');
+          valid = false;
+        }
+      }
+
+      if (!valid) return;
+
+      var plan = pricing[service.value];
+      var rooms = roomsBySize[propertySize.value] || 2;
+      var estimate = plan.base + plan.perRoom * rooms;
+
+      responseBox.innerHTML =
+        '<strong>Thank you, ' + fullname.value.trim() + '!</strong><br>' +
+        'Based on your selection, your estimated cost is <strong>R' + estimate + '</strong>, ' +
+        'and our next availability for this service is <strong>' + plan.availability + '</strong>.<br>' +
+        'We will confirm final pricing and booking details via ' + email.value.trim() + ' or ' + phone.value.trim() + '.';
+      responseBox.className = 'form-message success';
+      responseBox.hidden = false;
+      responseBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      form.reset();
+    });
+  });
+</script>
 </body>
 </html>

@@ -122,6 +122,9 @@ Interactive State Classes:
 
 .form-message: Wraps successful or status-based response feedback banners after submission.
 
+## Screenshots
+= Added responsiveness screnshots
+
 
 
 ## Sitemap
@@ -152,6 +155,22 @@ Home (index.html)
 ├── services.html
 ├── enquiry.html
 └── contact.html
+```
+##Part 3
+## File and Folder Structure
+
+/
+├── index.html
+├── style.css
+├── README.md
+├── Assets/
+│ └── (images used across the site — hero, service, and team photos)
+└── Pages/
+├── about.html
+├── services.html
+├── enquiry.html
+└── contact.html
+└── responsiveness screenshots
 ```
 
 ## File and Folder Structure

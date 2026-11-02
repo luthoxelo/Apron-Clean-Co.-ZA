@@ -41,14 +41,14 @@ Organisation source: https://www.goexpress.co.za/2025/02/06/go-people-sinesipho-
 | Sitemap & file/folder structure | Complete |
 | Initial HTML pages (Part 1) | Complete |
 
-## Part 1 Details
+## Part 1 Details:
 Part 1 delivers the initial HTML structure and static content for all five
 required pages, a shared stylesheet, shared JavaScript (navigation, form
 validation, scroll reveal), and the file/folder structure below.
 Part 2 and Part 3 will build on this foundation in future submissions/edits.
 
 
-## Part 2 Details
+## Part 2 Details:
 Part 2 focused on visual design, layout, and navigation, turning the static
 Part 1 HTML into a styled, fully responsive site:
 
@@ -82,6 +82,46 @@ Part 1 HTML into a styled, fully responsive site:
   - Fixed the "Home" nav link on the homepage, which incorrectly pointed to
     `about.html` instead of `index.html`.
   - Added an active-page indicator to the nav on every page.
+
+    ## Part 3 Details:
+    Stylesheet Consolidation & Optimization
+
+We discovered two separate, nearly identical CSS files (style.css and a secondary loose asset).
+
+The Problem: Maintaining two stylesheets risked style drift and redundant rule parsing.
+
+The Resolution: We successfully merged both stylesheets into a single source of truth inside the assets/ directory.
+
+Key Enhancements in Merged CSS:
+
+Clean section dividers for easier maintenance (/* ---------- Reset & base ---------- */, /* ---------- Forms ---------- */, etc.).
+
+Retained all critical form validation helper classes (.form-message, .field-error, .invalid) that were previously isolated.
+
+
+-Responsive Design & Layout
+
+The website layout utilizes a mobile-first philosophy backed by CSS Grid and Flexbox:
+
+Fluid Containers: Controlled via max-width variables (--max-width: 1100px) with safe horizontal padding scaling from 1.25rem on mobile to 2rem on desktop (min-width: 720px).
+
+Card Grids: Dynamic single-column layouts on compact viewports expanding into flexible 2-column or multi-column grids via media queries (@media (min-width: 620px) and @media (min-width: 980px)).
+
+Pure CSS Hamburger Navigation: Toggled seamlessly on screens under 720px using hidden checkbox sibling selectors (.nav-toggle:checked ~ nav#main-nav), eliminating heavy JavaScript dependencies for menu toggles while preserving accessibility.
+
+
+-Added JavaScript & Form Validation
+
+To support interactive booking, contact forms, and instant user feedback, the following front-end behaviors and validation classes were added:
+
+Interactive State Classes:
+
+.invalid: Triggers red border highlights and subtle background glows when input fields fail validation.
+
+.field-error: Displays dynamic inline helper text underneath invalid inputs.
+
+.form-message: Wraps successful or status-based response feedback banners after submission.
+
 
 ## Sitemap
 
@@ -146,3 +186,4 @@ Suggested sources used to inform content:*
 - Google Fonts: Space Grotesk, Work Sans, IBM Plex Mono —
   https://fonts.google.com/
 - OpenStreetMap — https://www.openstreetmap.org/ (embedded maps)
+- https://css-fundamentals.kevinpowell.co/1-essentials/reset/

@@ -248,3 +248,4 @@ Suggested sources used to inform content:*
   https://fonts.google.com/
 - OpenStreetMap — https://www.openstreetmap.org/ (embedded maps)
 - https://css-fundamentals.kevinpowell.co/1-essentials/reset/
+- https://www.w3schools.com/js/js_htmldom.asp

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Residential Deep Clean",
+    "price": "R850",
+    "description": "Comprehensive cleaning for homes, covering all living areas and kitchens."
+  },
+  {
+    "id": 2,
+    "title": "Post-Construction Clean",
+    "price": "R1200",
+    "description": "Removal of dust, debris, and paint marks after building or renovations."
+  }
+]

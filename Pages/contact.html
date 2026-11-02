@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apron Cleans Co. ZA - Contact Us</title>
-    <link rel="stylesheet" href="../Assets/css/style.css">
+    <title>Contact Ready-Maid | Cleaners in East London</title>
+<meta name="description" content="Call or WhatsApp Ready-Maid Cleaning Service on 084 675 6651. Serving East London (KuGompo City) and King William's Town (Qonce).">
+<meta name="keywords" content="contact Ready-Maid, cleaning company phone number East London, WhatsApp cleaner, cleaners near me East London, cleaning King William's Town, KuGompo City, Qonce">
+<meta name="author" content="Ready-Maid Cleaning Service">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/Pages/contact.html">
+<meta name="geo.region" content="ZA-EC">
+<meta name="geo.placename" content="East London, Eastern Cape, South Africa">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ready-Maid Cleaning Service">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="Contact Ready-Maid | Cleaners in East London">
+<meta property="og:description" content="Call or WhatsApp Ready-Maid Cleaning Service on 084 675 6651. Serving East London (KuGompo City) and King William's Town (Qonce).">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/Pages/contact.html">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/Assets/laughing-portrait-black-woman-cleaning-600nw-2326402989.webp">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/Assets/laughing-portrait-black-woman-cleaning-600nw-2326402989.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact Ready-Maid | Cleaners in East London">
+<meta name="twitter:description" content="Call or WhatsApp Ready-Maid Cleaning Service on 084 675 6651. Serving East London (KuGompo City) and King William's Town (Qonce).">
+    <title>Contact Us | Apron Cleans Co. ZA</title>
+    <link rel="stylesheet" href="../Assets/style.css">
 </head>
 <body>
 
@@ -145,104 +164,25 @@
                 </div>
             </div>
         </section>
+        <section class="section section--tags" aria-label="Areas we serve">
+  <div class="wrap">
+    <span class="eyebrow">Areas we serve</span>
+    <ul class="tag-list">
+      <li><a href="contact.html">East London</a></li>
+      <li><a href="contact.html">KuGompo City</a></li>
+      <li><a href="contact.html">King William's Town</a></li>
+      <li><a href="contact.html">Qonce</a></li>
+      <li><a href="contact.html">Eastern Cape</a></li>
+    </ul>
+  </div>
+</section>
     </main>
 
     <!-- Page Footer -->
     <footer>
         <p>&copy; 2026 Apron Cleans Co. ZA. All rights reserved.</p>
     </footer>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var form = document.getElementById('contact-form');
-    if (!form) return;
-
-    var RECIPIENT_EMAIL = 'info@aproncleans.co.za'; // change to your real inbox
-
-    var responseBox = document.createElement('div');
-    responseBox.id = 'contact-response';
-    responseBox.className = 'form-message';
-    responseBox.setAttribute('role', 'status');
-    responseBox.hidden = true;
-    form.insertAdjacentElement('afterend', responseBox);
-
-    function showError(input, message) {
-      clearError(input);
-      input.classList.add('invalid');
-      var small = document.createElement('small');
-      small.className = 'field-error';
-      small.textContent = message;
-      input.insertAdjacentElement('afterend', small);
-    }
-
-    function clearError(input) {
-      input.classList.remove('invalid');
-      var next = input.nextElementSibling;
-      if (next && next.classList.contains('field-error')) next.remove();
-    }
-
-    function isValidEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var name = form.querySelector('#contact-name');
-      var email = form.querySelector('#contact-email');
-      var type = form.querySelector('#message-type');
-      var message = form.querySelector('#contact-message');
-
-      [name, email, type, message].forEach(clearError);
-      responseBox.hidden = true;
-
-      var valid = true;
-
-      if (!name.value.trim()) {
-        showError(name, 'Please enter your name.');
-        valid = false;
-      }
-      if (!isValidEmail(email.value.trim())) {
-        showError(email, 'Please enter a valid email address.');
-        valid = false;
-      }
-      if (!type.value) {
-        showError(type, 'Please select a message type.');
-        valid = false;
-      }
-      if (!message.value.trim()) {
-        showError(message, 'Please type a message before sending.');
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      var subject = '[' + type.value + '] Message from ' + name.value.trim();
-      var bodyLines = [
-        'Name: ' + name.value.trim(),
-        'Email: ' + email.value.trim(),
-        'Phone: ' + (form.querySelector('#contact-phone').value.trim() || 'Not provided'),
-        'Type: ' + type.value,
-        '',
-        message.value.trim()
-      ];
-      var body = bodyLines.join('\n');
-
-      var mailtoLink = 'mailto:' + RECIPIENT_EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-
-      responseBox.innerHTML =
-        '<strong>Thanks, ' + name.value.trim() + '!</strong><br>' +
-        'Your email client should now be opening with your message ready to send to us. ' +
-        'If it does not open automatically, please email us directly at <strong>' + RECIPIENT_EMAIL + '</strong>.';
-      responseBox.className = 'form-message success';
-      responseBox.hidden = false;
-      responseBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      window.location.href = mailtoLink;
-      form.reset();
-    });
-  });
-</script>
-</body>
+<!-- Main JavaScript Link -->
+    <script src="../Assets/script.js"></script>
+  </body>
 </html>

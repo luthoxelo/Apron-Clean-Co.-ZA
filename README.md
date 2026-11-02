@@ -83,36 +83,36 @@ Part 1 HTML into a styled, fully responsive site:
     `about.html` instead of `index.html`.
   - Added an active-page indicator to the nav on every page.
 
-    ## Part 3 Details:
-    Stylesheet Consolidation & Optimization
+## Part 3 Details:
+### Stylesheet Consolidation & Optimization
 
-We discovered two separate, nearly identical CSS files (style.css and a secondary loose asset).
+- We discovered two separate, nearly identical CSS files (style.css and a secondary loose asset).
 
-The Problem: Maintaining two stylesheets risked style drift and redundant rule parsing.
+- The Problem: Maintaining two stylesheets risked style drift and redundant rule parsing.
 
-The Resolution: We successfully merged both stylesheets into a single source of truth inside the assets/ directory.
+- The Resolution: We successfully merged both stylesheets into a single source of truth inside the assets/ directory.
 
-Key Enhancements in Merged CSS:
+### Key Enhancements in Merged CSS:
 
 Clean section dividers for easier maintenance (/* ---------- Reset & base ---------- */, /* ---------- Forms ---------- */, etc.).
 
 Retained all critical form validation helper classes (.form-message, .field-error, .invalid) that were previously isolated.
 
 
--Responsive Design & Layout
+### Responsive Design & Layout
 
 The website layout utilizes a mobile-first philosophy backed by CSS Grid and Flexbox:
 
-Fluid Containers: Controlled via max-width variables (--max-width: 1100px) with safe horizontal padding scaling from 1.25rem on mobile to 2rem on desktop (min-width: 720px).
+- Fluid Containers: Controlled via max-width variables (--max-width: 1100px) with safe horizontal padding scaling from 1.25rem on mobile to 2rem on desktop (min-width: 720px).
 
-Card Grids: Dynamic single-column layouts on compact viewports expanding into flexible 2-column or multi-column grids via media queries (@media (min-width: 620px) and @media (min-width: 980px)).
+- Card Grids: Dynamic single-column layouts on compact viewports expanding into flexible 2-column or multi-column grids via media queries (@media (min-width: 620px) and @media (min-width: 980px)).
 
-Pure CSS Hamburger Navigation: Toggled seamlessly on screens under 720px using hidden checkbox sibling selectors (.nav-toggle:checked ~ nav#main-nav), eliminating heavy JavaScript dependencies for menu toggles while preserving accessibility.
+- Pure CSS Hamburger Navigation: Toggled seamlessly on screens under 720px using hidden checkbox sibling selectors (.nav-toggle:checked ~ nav#main-nav), eliminating heavy JavaScript dependencies for menu toggles while preserving accessibility.
 
 
--Added JavaScript & Form Validation
+## Added JavaScript & Form Validation
 
-To support interactive booking, contact forms, and instant user feedback, the following front-end behaviors and validation classes were added:
+- To support interactive booking, contact forms, and instant user feedback, the following front-end behaviors and validation classes were added:
 
 Interactive State Classes:
 
@@ -123,7 +123,6 @@ Interactive State Classes:
 .form-message: Wraps successful or status-based response feedback banners after submission.
 
 
-## Sitemap
 
 ## Sitemap
 ```

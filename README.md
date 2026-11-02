@@ -176,6 +176,15 @@ Home (index.html)
   CSS Grid, fluid images, responsive map embeds), active-nav-link styling,
   and fixed pre-existing HTML structural bugs in `about.html` and
   `contact.html`.
+  
+  (Part 3)
+ - Standardized XML Sitemap (sitemap.xml structure) detailing priority, metadata, and page locations across index.html, services.html, about.html, booking.html, locations.html, and contact.html.
+
+- Form Validation Utility Scripts (JS) supporting dynamic submit intercepting, empty field checking, and smooth feedback display.
+
+- Validation UI Classes (.invalid, .field-error, .form-message) supporting instant red error outlines and visual confirmation messages.
+
+- Comprehensive Project README & Documentation detailing CSS resets, layout breakpoints, and site architecture.
 
 ## References
 *Complete this section using your institution's recognised referencing style.
